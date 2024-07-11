@@ -5,11 +5,11 @@ import { LuAlarmClock } from "react-icons/lu";
 import { PiCurrencyDollarBold } from "react-icons/pi";
 
 const Card = ({data}) => {
-    const {companyName,companyLogo,jobTitle,minPrice,maxPrice,salaryType,jobLocation,employmentType,postingDate,
+    const {_id,companyName,companyLogo,jobTitle,minPrice,maxPrice,salaryType,jobLocation,employmentType,postingDate,
         description}= data;
   return (
     <section className='card'>
-        <Link to={"/"} className='flex gap-4 flex-col sm:flex-row items-start'>
+        <Link to={`/job/${_id}`} className='flex gap-4 flex-col sm:flex-row items-start'>
             <img src={companyLogo} alt="" className='w-20 max-h-20' />        
             <div>
                 <h4 className='text-primary mb-1'>{companyName}</h4>

@@ -20,7 +20,7 @@ const PostJob = () => {
         .then((result) => {
             // console.log(result)
             if(result.acknowledged===true){
-                alert("Job Posted Successfully!!!");
+                alert("Submitted!!!");
             }
             reset();
         })
@@ -121,7 +121,7 @@ const PostJob = () => {
                     <div className='lg:w-1/2 w-full'>
                         <label className='block mb-2 text-lg'>Employmet type</label>
                         <select {...register("employmentType")} className='create-job-input'>
-                            <option value="">Choose Experience</option>
+                            <option value="">--select Employment type--</option>
                             <option value="Full-time">Full-time</option>
                             <option value="Part-time">Part-time</option>
                             <option value="Temporary">Temporary</option>
