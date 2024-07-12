@@ -3,14 +3,14 @@ import Banner from '../components/Banner'
 import Jobs from './Jobs';
 import Card from '../components/Card';
 import Sidebar from '../sidebar/Sidebar';
-import Newsletter from '../components/Newsletter';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const [categorySelect,setCategorySelect] =useState(null);
   const[jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 5;
 
     //fetch data  
   useEffect(()=>{
@@ -71,16 +71,15 @@ const Home = () => {
 
       // category filtering
       if(selected){
-        filteredJobs = filteredJobs.filter(({jobLocation, maxPrice, experienceLevel, salaryType,employmentType,postingDate})=>(
+        filteredJobs = filteredJobs.filter(({jobLocation, qualification, experienceLevel, industry,employmentType,deadline})=>(
           jobLocation.toLowerCase() === selected.toLowerCase() || 
-          parseInt(maxPrice) <= parseInt(selected) ||
-          postingDate >= selected ||
+          qualification.toLowerCase() === selected.toLowerCase() ||
+          deadline >= selected ||
           experienceLevel.toLowerCase() === selected.toLowerCase() ||
-          salaryType.toLowerCase() === selected.toLowerCase() ||
+          industry.toLowerCase() === selected.toLowerCase() ||
           employmentType.toLowerCase() === selected.toLowerCase()
          
         ));
-        console.log(filteredJobs)
       }
 
       //slice the data based on current page 
@@ -94,17 +93,12 @@ const Home = () => {
 
   return (
     <div>
-      <Banner query={query} handleInputChange={handleInputChange}/>
+      <Banner query={query} handleInputChange={handleInputChange} handleChange={handleChange}/>
 
       {/* main content */}
-      <div className='bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12'>
+      <div className='bg-[#FAFAFA] md:grid grid-cols-3 gap-8 lg:px-24 px-4 py-12'>
 
-        {/* left side */}
-        <div className='bg-white p-4 rounded'>
-          <Sidebar handleChange={handleChange} handleClick={handleClick}/>
-        </div>
-
-        {/* job cards */}
+              {/*Left- side job cards */}
         <div className='col-span-2 bg-white p-4 rounded'>
 
           {
@@ -129,10 +123,11 @@ const Home = () => {
         </div>
 
         {/* right side */}
-        <div className='bg-white p-4 rounded'>
-          <Newsletter/>
+        <div className='bg-white p-4  rounded'>
+          <Sidebar handleChange={handleChange} handleClick={handleClick}/>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

@@ -9,7 +9,7 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen)
     };
     const navItems = [
-        {path: "/", title: "Start a search"},
+        {path: "/", title: "Home"},
         {path: "/my-job", title: "My Jobs"},
         // {path: "/salary", title: "Salary Estimate"},
         {path: "/post-job", title: "Post Job"},

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import CreatableSelect from 'react-select/creatable';
+import Select from '../components/Select';
 
 
 const PostJob = () => {
@@ -56,13 +57,21 @@ const PostJob = () => {
                 {/* Second row */}
                 <div className='create-job-flex space-y-5'>
                     <div className='lg:w-1/2 w-full'>
-                        <label className='block mb-2 text-lg'>Minimum salary</label>
-                        <input type="text" placeholder='$20k' {...register("minPrice")} 
-                        className='create-job-input' />
+                        <label className='block mb-2 text-lg'>Salary (optional)</label>
+                        <select {...register("salary")} className='create-job-input'>
+                            <option value="">Select</option>
+                            <option value="$20 - $50">$20 - $50</option>
+                            <option value="$50 - $60">$50 - $60</option>
+                            <option value="$60 - $80">$60 - $80</option>
+                            <option value="$80 - $100">$80 - $100</option>
+                            <option value="$100 - $120">$100 - $120</option>
+                            <option value="$120 - more">$120 - more</option>
+                        </select>
+
                     </div>
                     <div className='lg:w-1/2 w-full'>
-                        <label className='block mb-2 text-lg'>Maximum Salary</label>
-                        <input type="text" placeholder='$100k' {...register("maxPrice")} 
+                        <label className='block mb-2 text-lg'>Qualification</label>
+                        <input type="text" placeholder='Ex: Bsc. Computer Science' {...register("qualification")} 
                         className='create-job-input' />
                     </div>
                 </div>
@@ -70,35 +79,43 @@ const PostJob = () => {
                 {/* Third row */}
                 <div className='create-job-flex space-y-5'>
                     <div className='lg:w-1/2 w-full'>
-                        <label className='block mb-2 text-lg'>Salary type</label>
-                        <select {...register("salaryType")} className='create-job-input'>
-                            <option value="">Choose your salary</option>
-                            <option value="Hourly">Hourly</option>
-                            <option value="Monthly">Monthly</option>
-                            <option value="Yearly">Yearly</option>
+                        <label className='block mb-2 text-lg'>Industry</label>
+                        <select {...register("industry")} className='create-job-input'>
+                            <option value="">Select</option>
+                            <option value="Education">Education</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Agriculture">Agriculture</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Hospitality">Hospitality</option>
                         </select>
                     </div>
                     <div className='lg:w-1/2 w-full'>
                         <label className='block mb-2 text-lg'>Job Location</label>
-                        <input type="text" placeholder='Ex: London' {...register("jobLocation")} 
-                        className='create-job-input' />
+                        <select {...register("jobLocation")} className='create-job-input'>
+                            <Select/>
+                        </select>
                     </div>
                 </div>
 
                 {/* Fourth row */}
                 <div className='create-job-flex space-y-5'>
                     <div className='lg:w-1/2 w-full'>
-                        <label className='block mb-2 text-lg'>Job Posting date</label>
-                        <input type="date" placeholder='Ex: 2024-07-08' {...register("postingDate")} 
+                        <label className='block mb-2 text-lg'>Deadline for application</label>
+                        <input type="date" placeholder='Ex: 2024-07-08' {...register("deadline")} 
                         className='create-job-input' />
                     </div>
                     <div className='lg:w-1/2 w-full'>
-                        <label className='block mb-2 text-lg'>Expereince level</label>
+                        <label className='block mb-2 text-lg'>Experience</label>
                         <select {...register("experienceLevel")} className='create-job-input'>
-                            <option value="">Choose Experience</option>
-                            <option value="No Experience">No Experience</option>
-                            <option value="Internship">Internship</option>
-                            <option value="Work Remotely">Work Remotely</option>
+                            <option value="">No Experience</option>
+                            <option value="Less than 1 year">Less than 1 year</option>
+                            <option value="Atleast 2 years">Atleast 2 years</option>
+                            <option value="More than 3 years">More than 3 years</option>
+                            <option value="More than 5 years">More than 5 years</option>
                         </select>
                     </div>
                     
@@ -119,12 +136,11 @@ const PostJob = () => {
                         className='create-job-input' />
                     </div>
                     <div className='lg:w-1/2 w-full'>
-                        <label className='block mb-2 text-lg'>Employmet type</label>
+                        <label className='block mb-2 text-lg'>Employment type</label>
                         <select {...register("employmentType")} className='create-job-input'>
-                            <option value="">--select Employment type--</option>
-                            <option value="Full-time">Full-time</option>
-                            <option value="Part-time">Part-time</option>
-                            <option value="Temporary">Temporary</option>
+                            <option value="">--Select--</option>
+                            <option value="On-Site">On-Site</option>
+                            <option value="Remote">Remote</option>
                         </select>
                     </div>
                     

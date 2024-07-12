@@ -10,8 +10,11 @@ const WorkExperience = ({handleChange}) => {
         <input type="radio" name="test" id="test"  value="" onChange={handleChange}/>
         <span className='checkmark'></span>Any experience
       </label>
-      <InField name="test" value="internship" handleChange={handleChange} title="Internship" />
-      <InField name="test" value="work remotely" handleChange={handleChange} title="Work remotely" />
+      <InField name="test" value="No Experience" handleChange={handleChange} title="No Experience" />
+      <InField name="test" value="Less than 1 year" handleChange={handleChange} title="Less than 1 year" />
+      <InField name="test" value="Atleast 2 years" handleChange={handleChange} title="Atleast 2 years" />
+      <InField name="test" value="More than 3 years" handleChange={handleChange} title="More than 3 years" />
+      <InField name="test" value="More than 5 years" handleChange={handleChange} title="More than 5 years" />
     </div>
 </div>
   )

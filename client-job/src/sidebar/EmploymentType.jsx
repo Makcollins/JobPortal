@@ -10,9 +10,8 @@ const EmploymentType = ({handleChange}) => {
             <input type="radio" name="test" id="test"  value="" onChange={handleChange}/>
             <span className='checkmark'></span>Any
         </label>
-        <InField name="test" value="Full-time" handleChange={handleChange} title="Full-time" />
-        <InField name="test" value="Temporary" handleChange={handleChange} title="Temporary" />
-        <InField name="test" value="Part-time" handleChange={handleChange} title="Part-time" />
+        <InField name="test" value="On-Site" handleChange={handleChange} title="On-Site" />
+        <InField name="test" value="Remote" handleChange={handleChange} title="Remote" />
         </div>  
     </div>
   )

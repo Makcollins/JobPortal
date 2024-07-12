@@ -1,13 +1,14 @@
 import { createBrowserRouter  } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
-import About from "../pages/About";
+
 import PostJob from "../pages/PostJob";
 import MyJobs from "../pages/MyJobs";
-import { useLoaderData, useParams } from 'react-router-dom'
+
 import Update from "../pages/Update";
 import Login from "../components/Login";
 import JobDetails from "../pages/JobDetails";
+import SignUp from "../components/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         {
           path: "/login",
           element: <Login/>
+        },
+        {
+          path: "/sign-up",
+          element: <SignUp/>
         },
         {path: "/job/:id", element: <JobDetails/>}
       ]

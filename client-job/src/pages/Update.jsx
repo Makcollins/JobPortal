@@ -7,7 +7,7 @@ const Update = () => {
     const {id} = useParams
     // console.log(id)
 
-    const {_id, jobTitle, companyName, minPrice, maxPrice , salaryType, jobLocation, postingDate, 
+    const {_id, jobTitle, companyName, salary, qualification , industry, jobLocation, deadline, 
       experienceLevel, companyLogo, employmentType, description, postedBy, skills
     } = useLoaderData();
 
@@ -27,7 +27,7 @@ const Update = () => {
       .then((result) => {
           // console.log(result)
           if(result.acknowledged===true){
-              alert("Updated!!!");
+              alert("Record Updated!");
           }
           reset();
       })
@@ -65,31 +65,43 @@ const Update = () => {
 
             {/* Second row */}
             <div className='create-job-flex space-y-5'>
-                <div className='lg:w-1/2 w-full'>
-                    <label className='block mb-2 text-lg'>Minimum salary</label>
-                    <input type="text" placeholder='$20k' 
-                    defaultValue={minPrice} {...register("minPrice")} 
-                    className='create-job-input' />
+                    <div className='lg:w-1/2 w-full'>
+                        <label className='block mb-2 text-lg'>Salary (optional)</label>
+                        <select defaultValue={salary} {...register("salary")} className='create-job-input'>
+                            <option value={salary}>{salary}</option>
+                            <option value="$20 - $50">$20 - $50</option>
+                            <option value="$50 - $60">$50 - $60</option>
+                            <option value="$60 - $80">$60 - $80</option>
+                            <option value="$80 - $100">$80 - $100</option>
+                            <option value="$100 - $120">$100 - $120</option>
+                            <option value="$120 - more">$120 - more</option>
+                        </select>
+
+                    </div>
+                    <div className='lg:w-1/2 w-full'>
+                        <label className='block mb-2 text-lg'>Qualification</label>
+                        <input type="text" defaultValue={qualification} placeholder='Ex: Bsc. Computer Science' {...register("qualification")} 
+                        className='create-job-input' />
+                    </div>
                 </div>
-                <div className='lg:w-1/2 w-full'>
-                    <label className='block mb-2 text-lg'>Maximum Salary</label>
-                    <input type="text" placeholder='$100k' {...register("maxPrice")} 
-                    defaultValue={maxPrice}
-                    className='create-job-input' />
-                </div>
-            </div>
 
             {/* Third row */}
             <div className='create-job-flex space-y-5'>
-                <div className='lg:w-1/2 w-full'>
-                    <label className='block mb-2 text-lg'>Salary type</label>
-                    <select {...register("salaryType")} className='create-job-input'>
-                        <option value={salaryType}>{salaryType}</option>
-                        <option value="Hourly">Hourly</option>
-                        <option value="Monthly">Monthly</option>
-                        <option value="Yearly">Yearly</option>
-                    </select>
-                </div>
+            <div className='lg:w-1/2 w-full'>
+                        <label className='block mb-2 text-lg'>Industry</label>
+                        <select {...register("industry")} className='create-job-input'>
+                            <option value={industry}>{industry}</option>
+                            <option value="Education">Education</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Agriculture">Agriculture</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Hospitality">Hospitality</option>
+                        </select>
+                    </div>
                 <div className='lg:w-1/2 w-full'>
                     <label className='block mb-2 text-lg'>Job Location</label>
                     <input type="text" placeholder='Ex: London'
@@ -103,17 +115,17 @@ const Update = () => {
                 <div className='lg:w-1/2 w-full'>
                     <label className='block mb-2 text-lg'>Job Posting date</label>
                     <input type="date" placeholder='Ex: 2024-07-08'
-                    defaultValue={postingDate} {...register("postingDate")} 
+                    defaultValue={deadline} {...register("deadline")} 
                     className='create-job-input' />
                 </div>
                 <div className='lg:w-1/2 w-full'>
-                    <label className='block mb-2 text-lg'>Expereince level</label>
-                    <select {...register("experienceLevel")}
-                    className='create-job-input'>
-                        <option value={experienceLevel}>{experienceLevel}</option>
-                        <option value="No Experience">No Experience</option>
-                        <option value="Internship">Internship</option>
-                        <option value="Work Remotely">Work Remotely</option>
+                    <label className='block mb-2 text-lg'>Experience</label>
+                    <select {...register("experienceLevel")} className='create-job-input'>
+                    <option value={experienceLevel}>{experienceLevel}</option>
+                        <option value="Less than 1 year">Less than 1 year</option>
+                        <option value="Atleast 2 years">Atleast 2 years</option>
+                        <option value="More than 3 years">More than 3 years</option>
+                        <option value="More than 5 years">More than 5 years</option>
                     </select>
                 </div>
                 
@@ -135,13 +147,12 @@ const Update = () => {
                     className='create-job-input' />
                 </div>
                 <div className='lg:w-1/2 w-full'>
-                    <label className='block mb-2 text-lg'>Employmet type</label>
-                    <select {...register("employmentType")} className='create-job-input'>
-                        <option value={employmentType}>{employmentType}</option>
-                        <option value="Full-time">Full-time</option>
-                        <option value="Part-time">Part-time</option>
-                        <option value="Temporary">Temporary</option>
-                    </select>
+                        <label className='block mb-2 text-lg'>Employment type</label>
+                        <select {...register("employmentType")} className='create-job-input'>
+                            <option value="">--Select--</option>
+                            <option value="On-Site">On-Site</option>
+                            <option value="Remote">Remote</option>
+                        </select>
                 </div>
                 
             </div>

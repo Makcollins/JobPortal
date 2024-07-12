@@ -5,7 +5,7 @@ const InField = ({name ,value,handleChange,title}) => {
     <label className='sidebar-label-container'>
           <input type="radio" name={name}  value={value} onChange={handleChange}/>
           <span className='checkmark'></span>{title}
-      </label>
+    </label>
   )
 }
 
