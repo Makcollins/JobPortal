@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         {path: "/post-job", element: <PostJob />},
         {path: "/my-job", element: <MyJobs />},
         {path: "/edit-job/:id", element: <Update />,
-          loader: ({params}) => fetch(`http://localhost:3000/all-jobs/${params.id}`)
+          loader: ({params}) => fetch(`https://jobportal-backend-waol.onrender.com/all-jobs/${params.id}`)
         },
         {
           path: "/login",
