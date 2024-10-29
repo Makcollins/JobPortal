@@ -13,7 +13,7 @@ const MyJobs = () => {
 
     useEffect(()=>{
         setIsLoading(false);
-        fetch('http://localhost:3000/myJobs/makcollins16@gmail.com')
+        fetch('https://jobportal-backend-waol.onrender.com/myJobs/makcollins16@gmail.com')
         .then(res => res.json())
         .then(data => {setJobs(data)});
     }, [isLoading]);
