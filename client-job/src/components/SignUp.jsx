@@ -10,7 +10,7 @@ const SignUp = () => {
     
     const handleSignup = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3000/signup", { email, password })
+        axios.post("https://jobportal-backend-waol.onrender.com/signup", { email, password })
             .then(result => {
                 if (result.status === 201) {
                     navigate("/login");
