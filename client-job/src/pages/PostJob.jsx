@@ -12,7 +12,7 @@ const PostJob = () => {
         data.skills = selectedOption;
         // console.log(data);
         
-        fetch("http://localhost:3000/post-job",{
+        fetch("https://jobportal-backend-waol.onrender.com/post-job",{
             method: "POST",
             headers: {"content-type":"application/json"},
             body: JSON.stringify(data)
