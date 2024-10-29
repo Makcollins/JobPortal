@@ -6,7 +6,7 @@ const JobDetails = () => {
     const {id} = useParams();
     const [job, setJob] = useState([]) 
     useEffect(()=> {
-        fetch(`http://localhost:3000/all-jobs/${id}`)
+        fetch(`https://jobportal-backend-waol.onrender.com/all-jobs/${id}`)
         .then(res => res.json())
         .then(data => setJob(data))
     },[])
