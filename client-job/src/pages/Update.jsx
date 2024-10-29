@@ -18,7 +18,7 @@ const Update = () => {
       data.skills = selectedOption;
       // console.log(data);
       
-      fetch(`http://localhost:3000/update-job/${id}`,{
+      fetch(`https://jobportal-backend-waol.onrender.com/update-job/${id}`,{
           method: "PATCH",
           headers: {"content-type":"application/json"},
           body: JSON.stringify(data)
