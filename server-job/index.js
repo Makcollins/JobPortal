@@ -105,7 +105,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Job portal API working!')
 })
 
 app.listen(port, () => {
