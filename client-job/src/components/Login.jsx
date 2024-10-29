@@ -10,10 +10,10 @@ const Login = ({ setIsLoggedIn, isLoggedIn }) => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3000/login", { email, password }, { withCredentials: true })
+        axios.post("https://jobportal-backend-waol.onrender.com/login", { email, password }, { withCredentials: true })
             .then(result => {
                 if (result.data === "Success") {
-                    axios.get('http://localhost:3000/user', { withCredentials: true })
+                    axios.get('https://jobportal-backend-waol.onrender.com/user', { withCredentials: true })
                         .then(response => {
                             if (response.data.user) {
                               setIsLoggedIn(true);
